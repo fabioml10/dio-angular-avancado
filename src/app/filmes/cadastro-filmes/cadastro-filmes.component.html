@@ -5,13 +5,13 @@
       <mat-card-content>
         <mat-form-field class="full-width">
           <input matInput name="titulo" formControlName="titulo" placeholder="Título*">
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && f.titulo.errors?.required">
+          <mat-error *ngIf="validacao.hasErrorValidate(f.titulo, 'required')">
             Campo obrigatório.
           </mat-error>
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && f.titulo.errors?.minlength">
+          <mat-error *ngIf="validacao.hasErrorValidate(f.titulo, 'minlength')">
             Número insuficiente de caracteres.
           </mat-error>
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && f.titulo.errors?.maxlength">
+          <mat-error *ngIf="validacao.hasErrorValidate(f.titulo, 'maxlength')">
             Número máximo de caracteres excedido.
           </mat-error>
         </mat-form-field>
@@ -23,20 +23,20 @@
             placeholder="Data de Lançamento*" readonly (click)="picker.open()">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && f.dataLancamento.errors?.required">
+          <mat-error *ngIf="validacao.hasErrorValidate(f.dataLancamento, 'required')">
             Campo obrigatório.
           </mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
           <textarea matInput name="descricao" formControlName="descricao" placeholder="Descrição*"></textarea>
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && f.descricao.errors?.required">
+          <mat-error *ngIf="validacao.hasErrorValidate(f.descricao, 'required')">
             Campo obrigatório.
           </mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
           <input type="number" matInput name="nota" formControlName="nota" placeholder="Nota IMDb" min="0" max="10"
             step="0.1">
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && (f.nota.errors?.min || f.nota.errors?.max)">
+          <mat-error *ngIf="(validacao.hasErrorValidate(f.nota, 'min') || validacao.hasErrorValidate(f.nota, 'max'))">
             Nota deve ser entre 0 e 10.
           </mat-error>
         </mat-form-field>
@@ -51,7 +51,7 @@
             <mat-option value="Romance">Romance</mat-option>
             <mat-option value="Terror">Terror</mat-option>
           </mat-select>
-          <mat-error *ngIf="(cadastro.touched || cadastro.dirty) && f.genero.errors?.required">
+          <mat-error *ngIf="validacao.hasErrorValidate(f.genero, 'required')">
             Campo obrigatório.
           </mat-error>
         </mat-form-field>
