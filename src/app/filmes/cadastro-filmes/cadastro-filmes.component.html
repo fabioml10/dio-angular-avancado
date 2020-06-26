@@ -8,7 +8,8 @@
         <dio-input-date titulo="Data de Lançamento*" [formGroup]="cadastro" controlName="dataLancamento">
         </dio-input-date>
         <dio-input-textarea titulo="Descrição*" [formGroup]="cadastro" controlName="descricao"></dio-input-textarea>
-        <dio-input-number titulo="Nota IMDb" [formGroup]="cadastro" controlName="nota"></dio-input-number>
+        <dio-input-number titulo="Nota IMDb" [formGroup]="cadastro" controlName="nota" min="0" max="10" step="0.1">
+        </dio-input-number>
         <dio-input-text titulo="Link IMDb" [formGroup]="cadastro" controlName="IMDb"></dio-input-text>
         <dio-input-select titulo="Gênero*" [formGroup]="cadastro" controlName="genero"></dio-input-select>
       </mat-card-content>
