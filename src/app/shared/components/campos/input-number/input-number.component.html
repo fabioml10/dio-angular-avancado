@@ -1,0 +1,10 @@
+<div [formGroup]="formGroup">
+  <mat-form-field class="full-width">
+    <input type="number" matInput [name]="controlName" [formControlName]="controlName" [placeholder]="titulo"
+      [min]="min" [max]="max" [step]="step">
+    <mat-error
+      *ngIf="(validacao.hasErrorValidate(formControl, 'min') || validacao.hasErrorValidate(formControl, 'max'))">
+      Nota deve ser entre 0 e 10.
+    </mat-error>
+  </mat-form-field>
+</div>
