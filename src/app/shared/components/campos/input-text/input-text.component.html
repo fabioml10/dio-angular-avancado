@@ -5,10 +5,10 @@
       Campo obrigatório.
     </mat-error>
     <mat-error *ngIf="validacao.hasErrorValidate(formControl, 'minlength')">
-      Número insuficiente de caracteres.
+      Mínimo de {{validacao.lengthValidate(formControl, 'minlength')}} caracteres.
     </mat-error>
     <mat-error *ngIf="validacao.hasErrorValidate(formControl, 'maxlength')">
-      Número máximo de caracteres excedido.
+      Máximo de {{validacao.lengthValidate(formControl, 'maxlength')}} caracteres.
     </mat-error>
   </mat-form-field>
 </div>

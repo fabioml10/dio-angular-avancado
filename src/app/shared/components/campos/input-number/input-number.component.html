@@ -4,7 +4,7 @@
       [min]="min" [max]="max" [step]="step">
     <mat-error
       *ngIf="(validacao.hasErrorValidate(formControl, 'min') || validacao.hasErrorValidate(formControl, 'max'))">
-      Nota deve ser entre 0 e 10.
+      Nota deve ser entre {{min}} e {{max}}.
     </mat-error>
   </mat-form-field>
 </div>
